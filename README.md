@@ -52,11 +52,11 @@ Let's compare compared with the "official" sqrt:
     *Main> sqrt 2
     1.4142135623730951
 
-It is almost incredible how just few iterations make so accurate result!
+It is almost incredible how just few iterations make so accurate result.
 
 ## General solver
 
-The biggest challenge for a general root solving code is the need for derivate of the function. If we would like to
+The biggest challenge for a general root solving code is the need for the derivate of the function. If we would like to
 give the function as a lambda, we clearly can not do symbolical differentiation. However, it turns out that we will get rather
 good results when using numerical derivation; since the real derivate is the limit of
 
