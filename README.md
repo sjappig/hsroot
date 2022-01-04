@@ -1,10 +1,12 @@
 # Newton's method with Haskell
 
+> Published also in https://programmingwithjp.wordpress.com/2022/01/04/newtons-method-with-haskell/
+
 Newton's method is a root-finding algorithm which produces successively better approximations to the roots (or zeroes)
-of a real-valued function [1]. The idea is to take a previous estimate of the root, and produce a better estimate from
-it by taking the root of the function's tangent line. One way to look at this is process is that instead of trying to
-solve the root directly, we are approximating the function where previous root estimate is with linear function, and
-solving the root for that. Original estimate which sets this whole process in motion is basically a guess.
+of a real-valued function [1]. The idea is to take a previous estimate (x_n) of the root, and produce a better estimate
+(x_[n+1]) from it by taking the root of the function's tangent line. One way to look at this is process is that instead
+of trying to solve the root directly, we are approximating the function with linear function in the location of the
+previous estimate, and solving the root for that. Original estimate which sets this whole process in motion is a guess.
 
 The equations can be derived from the linear approximation
 
@@ -45,7 +47,7 @@ As the first guess we can use the number itself. Implementation in Haskell is re
         | otherwise  = x - (x**2 - n) / (2 * x)
         where x = nsqrt n (depth - 1)
 
-Let's compare compared with the "official" sqrt:
+Let's compare compared with the "official" *sqrt*:
 
     *Main> nsqrt 2 5
     1.4142135623730951
@@ -56,9 +58,9 @@ It is almost incredible how just few iterations make so accurate result.
 
 ## General solver
 
-The biggest challenge for a general root solving code is the need for the derivate of the function. If we would like to
+The biggest challenge for a general root solving code is the need for the derivative of the function. If we would like to
 give the function as a lambda, we clearly can not do symbolical differentiation. However, it turns out that we will get rather
-good results when using numerical derivation; since the real derivate is the limit of
+good results when using numerical derivation; since the real derivative is the limit of
 
     (f(x + h) - f(x)) / h
 
